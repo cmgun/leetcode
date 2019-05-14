@@ -53,5 +53,10 @@ public class Solution10 {
                 dp[0][j] = p.charAt(j - 1) == '*' && dp[0][j - 2];
             }
         }
+
+        // handle normal conditions
+        for (int i = 1; i <= s.length(); i++) {
+
+        }
     }
 }
