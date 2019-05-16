@@ -6,7 +6,7 @@ package com.cmgun.lettcode.dp;
  *
  * Created by cmgun on 2019/5/12
  */
-public class Solution10 {
+public class RegularExpressionMatching {
 
     public static void main(String[] args) {
         // false

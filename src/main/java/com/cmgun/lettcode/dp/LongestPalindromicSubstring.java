@@ -6,7 +6,7 @@ package com.cmgun.lettcode.dp;
  *
  * Created by cmgun on 2019/4/9
  */
-public class Solution5 {
+public class LongestPalindromicSubstring {
 
     public static void main(String[] args) {
         // bbb

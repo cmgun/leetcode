@@ -6,7 +6,7 @@ package com.cmgun.lettcode.math;
  *
  * Created by cmgun on 2019/3/1
  */
-public class Solution7 {
+public class ReverseInteger {
 
     public static void main(String[] args) {
         // print 321

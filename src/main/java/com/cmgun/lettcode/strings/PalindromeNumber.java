@@ -6,7 +6,7 @@ package com.cmgun.lettcode.strings;
  *
  * Created by cmgun on 2019/5/10
  */
-public class Solution9 {
+public class PalindromeNumber {
 
     public static void main(String[] args) {
         System.out.println(isPalindrome(1) + "");
