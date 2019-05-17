@@ -1,4 +1,4 @@
-package com.cmgun.lettcode.math;
+package com.cmgun.leetcode.math;
 
 import java.util.HashMap;
 import java.util.Map;

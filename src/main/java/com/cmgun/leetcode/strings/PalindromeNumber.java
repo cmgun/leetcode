@@ -1,4 +1,4 @@
-package com.cmgun.lettcode.strings;
+package com.cmgun.leetcode.strings;
 
 /**
  * 9. Palindrome Number

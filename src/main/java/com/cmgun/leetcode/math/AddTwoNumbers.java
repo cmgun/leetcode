@@ -1,4 +1,4 @@
-package com.cmgun.lettcode.math;
+package com.cmgun.leetcode.math;
 
 /**
  * 2. Add Two Numbers

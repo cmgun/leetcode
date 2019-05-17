@@ -1,4 +1,4 @@
-package com.cmgun.lettcode.math;
+package com.cmgun.leetcode.math;
 
 /**
  * 7. Reverse Integer

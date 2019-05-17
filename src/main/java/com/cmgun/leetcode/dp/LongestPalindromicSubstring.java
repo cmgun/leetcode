@@ -1,4 +1,4 @@
-package com.cmgun.lettcode.dp;
+package com.cmgun.leetcode.dp;
 
 /**
  * 5. Longest Palindromic Substring

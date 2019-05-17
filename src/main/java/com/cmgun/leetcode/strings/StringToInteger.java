@@ -1,4 +1,4 @@
-package com.cmgun.lettcode.strings;
+package com.cmgun.leetcode.strings;
 
 /**
  * 8. String to Integer (atoi)

@@ -1,4 +1,4 @@
-package com.cmgun.lettcode.array;
+package com.cmgun.leetcode.array;
 
 /**
  * 4. Median of Two Sorted Arrays
