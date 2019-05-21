@@ -14,3 +14,6 @@
 |9|[Palindrome Number](https://leetcode.com/problems/palindrome-number/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/strings/PalindromeNumber.java)|Medium|
 |10|[Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/dp/RegularExpressionMatching.java)|Hard|
 |11|[Container With Most Water](https://leetcode.com/problems/container-with-most-water/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/array/ContainerWithMostWater.java)|Medium|
+|12|[Integer to Roman](https://leetcode.com/problems/integer-to-roman/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/.java)|Medium|
+|13|[Roman to Integer](https://leetcode.com/problems/roman-to-integer/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/.java)|Easy|
+
