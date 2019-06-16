@@ -1,4 +1,4 @@
-package com.cmgun.other;
+package com.cmgun.thread;
 
 /**
  * 同步锁测试，多线程
