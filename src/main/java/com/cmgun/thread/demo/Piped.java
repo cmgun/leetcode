@@ -1,4 +1,4 @@
-package com.cmgun.thread;
+package com.cmgun.thread.demo;
 
 import java.io.PipedReader;
 import java.io.PipedWriter;
