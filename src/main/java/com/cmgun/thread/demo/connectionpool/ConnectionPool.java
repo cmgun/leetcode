@@ -1,4 +1,4 @@
-package com.cmgun.thread.demo.pool;
+package com.cmgun.thread.demo.connectionpool;
 
 import java.sql.Connection;
 import java.util.LinkedList;

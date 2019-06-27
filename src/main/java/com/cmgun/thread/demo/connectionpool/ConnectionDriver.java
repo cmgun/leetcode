@@ -1,4 +1,4 @@
-package com.cmgun.thread.demo.pool;
+package com.cmgun.thread.demo.connectionpool;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
