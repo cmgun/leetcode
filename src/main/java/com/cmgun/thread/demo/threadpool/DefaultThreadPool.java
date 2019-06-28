@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -26,6 +27,11 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
      * 线程池最小数量
      */
     private static final int MIN_WORKER_NUMBERS = 1;
+
+    /**
+     * 默认工作线程等待时长
+     */
+    private static final int DEFAULT_WAIT_TIME_SECONDS = 2;
 
     /**
      * 工作队列
@@ -83,6 +89,7 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
 
         @Override
         public void run() {
+            System.out.println(" Thread:" + Thread.currentThread().getName() + " start");
             while (running) {
 //                Job job = null;
                 synchronized (jobs) {
@@ -92,33 +99,39 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
                             jobs.wait();
                         } catch (InterruptedException e) {
                             // 线程被中断
+                            System.out.println(" Thread:" + Thread.currentThread().getName() + " interrupt");
                             Thread.currentThread().interrupt();
                             return;
                         }
-                    }
-                    if (!running) {
-                        break;
+                        System.out.println(" Thread:" + Thread.currentThread().getName() + " awake");
+                        if (!running) {
+                            break;
+                        }
                     }
                     try {
                         System.out.println("take job start, Thread:" + Thread.currentThread().getName());
                         // 有任务，取第一个
-                        Job job = jobs.take();
-                        job.run();
+                        Job job = jobs.poll(DEFAULT_WAIT_TIME_SECONDS, TimeUnit.SECONDS);
+                        if (job != null) {
+                            job.run();
+                        }
                         System.out.println("take job end, Thread:" + Thread.currentThread().getName());
                     } catch (InterruptedException e) {
                         // 线程中断
+                        System.out.println(" Thread:" + Thread.currentThread().getName() + " interrupt");
                         Thread.currentThread().interrupt();
                         return;
                     }
                 }
             }
+            System.out.println(" Thread:" + Thread.currentThread().getName() + " finish");
         }
 
         /**
          * 结束工作者线程
          */
         public void shutdown() {
-            System.out.println("running false");
+            System.out.println(" Thread:" + Thread.currentThread().getName() + " running false");
             this.running = false;
         }
     }
@@ -128,12 +141,10 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
         if (job != null) {
             // 添加一个工作
             try {
-                System.out.println("put job start, Thread:" + Thread.currentThread().getName());
                 synchronized (jobs) {
                     jobs.put(job);
                     jobs.notifyAll();
                 }
-                System.out.println("put job end, Thread:" + Thread.currentThread().getName());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -146,6 +157,9 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
         System.out.println("shutdown");
         for (Worker worker : workers) {
             worker.shutdown();
+        }
+        synchronized (jobs) {
+            jobs.notifyAll();
         }
     }
 

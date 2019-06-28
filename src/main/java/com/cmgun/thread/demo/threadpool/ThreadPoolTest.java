@@ -16,12 +16,13 @@ public class ThreadPoolTest {
         for (int i = 0; i < 30; i++) {
             pool.execute(new TestRunnable(num.incrementAndGet()));
         }
-//        while (pool.getJobSize() > 0) {
-//            // do nothing
-//            System.out.println("do nothing");
-//        }
+        while (pool.getJobSize() > 0) {
+            // do nothing
+        }
         System.out.println("shutdown prepare");
         pool.shutdown();
+        // 等所有工作线程都关闭，实际应该由线程池控制，后续修改
+        Thread.sleep(20000);
         System.out.println("main end");
     }
 
