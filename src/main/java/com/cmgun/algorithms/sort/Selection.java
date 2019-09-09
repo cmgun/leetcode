@@ -11,6 +11,11 @@ package com.cmgun.algorithms.sort;
 public class Selection extends AbstractSortTemplate {
 
     @Override
+    public String name() {
+        return "Selection";
+    }
+
+    @Override
     public void sort(Comparable[] a) {
         int size = a.length;
         for (int i = 0; i < size; i++) {

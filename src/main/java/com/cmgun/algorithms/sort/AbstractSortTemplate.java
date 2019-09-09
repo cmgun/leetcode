@@ -8,6 +8,13 @@ package com.cmgun.algorithms.sort;
 public abstract class AbstractSortTemplate {
 
     /**
+     * 算法名称
+     *
+     * @return
+     */
+    public abstract String name();
+
+    /**
      * 排序方法
      *
      * @param a
