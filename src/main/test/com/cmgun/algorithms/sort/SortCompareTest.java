@@ -7,9 +7,15 @@ import java.util.Random;
 public class SortCompareTest {
 
     @Test
-    public void test() {
+    public void test1() {
         compare(new Insertion(), new Selection(), 1000, 100);
         compare(new Insertion(), new Selection(), 10000, 100);
+    }
+
+    @Test
+    public void test2() {
+        compare(new Shell(), new Insertion(), 1000, 100);
+        compare(new Shell(), new Insertion(), 10000, 100);
     }
 
     private void compare(AbstractSortTemplate alg1, AbstractSortTemplate alg2, int size, int repeat) {
