@@ -22,7 +22,7 @@ public abstract class AbstractSortTemplate {
     public abstract void sort(Comparable[] a);
 
     /**
-     * 元素比较
+     * 元素比较，v 比 w 小
      *
      * @param v
      * @param w
