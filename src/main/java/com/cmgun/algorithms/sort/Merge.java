@@ -13,7 +13,7 @@ public class Merge extends AbstractSortTemplate {
     /**
      * 辅助数组
      */
-    private Comparable[] aux;
+    protected Comparable[] aux;
 
     @Override
     public String name() {
@@ -26,7 +26,7 @@ public class Merge extends AbstractSortTemplate {
         aux = new Comparable[a.length];
         sort(a, 0, a.length - 1);
         // 结束后释放空间
-//        aux = null;
+        aux = null;
     }
 
     /**
@@ -57,7 +57,7 @@ public class Merge extends AbstractSortTemplate {
      * @param mid
      * @param end
      */
-    public void merge(Comparable[] a, int start, int mid, int end) {
+    protected void merge(Comparable[] a, int start, int mid, int end) {
         // 左边数组的起点
         int i = start;
         // 右边数组的起点
