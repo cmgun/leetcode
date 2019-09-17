@@ -8,6 +8,8 @@ package com.cmgun.algorithms.sort;
  * 当a[i]大于v，交换a[gt]和a[i]，gt-1;
  * 啊【i】等于v，i+1
  *
+ * 三切分最坏情况是，所有元素都不同
+ *
  * Created by cmgun on 2019/9/18
  */
 public class Quick3way extends Quick {
