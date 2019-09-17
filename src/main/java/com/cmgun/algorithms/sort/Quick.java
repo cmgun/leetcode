@@ -7,6 +7,12 @@ package com.cmgun.algorithms.sort;
  * 与归并不同的是，归并算法里子数组排序后需要进行归并。快排则不需要，当两个子数组都有序时整体数组就有序。
  *
  * 核心思想：选择切分位置，切分前后部分各自排序。
+ * 切分点的选择会影响排序效果。
+ *
+ * 算法改进：
+ * 1、小数组时切换到插入排序
+ * 2、使用子数组的一部分元素的中位数作为切分点，三取样切分，即用3作为切分点的间隔
+ * 3、有大量重复元素时，数组可以切分为三部分，小于、等于、大于。
  *
  * Created by cmgun on 2019/9/15
  */
@@ -22,7 +28,7 @@ public class Quick extends AbstractSortTemplate {
         sort(a, 0, a.length - 1);
     }
 
-    private void sort(Comparable[] a, int start, int end) {
+    protected void sort(Comparable[] a, int start, int end) {
         if (start >= end) {
             return;
         }
