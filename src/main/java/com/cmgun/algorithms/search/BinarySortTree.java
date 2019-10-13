@@ -237,4 +237,88 @@ public class BinarySortTree<Key extends Comparable, Value> {
         // 右子树中有小于等于key的节点
         return right;
     }
+
+
+    /**
+     * 删除最小节点
+     * 即从根节点开始，找到其左子树中最小的节点。
+     * 当遇到空链接时到达最小节点位置，将指向该节点的链接改为指向该节点的右子树。
+     */
+    public void deleteMin() {
+        root = deleteMin(root);
+    }
+
+    /**
+     * 删除指定节点下的最小节点
+     * @param x
+     * @return 删除最小节点后的节点
+     */
+    private Node deleteMin(Node x) {
+        if (x.left == null) {
+            return x.right;
+        }
+        // 递归往上更新链接和节点计数器
+        x.left = deleteMin(x.left);
+        x.nodeNums = size(x.left) + size(x.right) + 1;
+        return x;
+    }
+
+    /**
+     * 删除指定节点
+     * 删除节点的核心在于找到删除节点的替换节点，更新原来指向删除节点的链接指向
+     *
+     * 1. 找到需要删除的节点，将指向其的链接保存。
+     * 2. 根据删除节点的左右子树是否为空分为几个场景：
+     * 2.1 左/右子树为空，返回另一边子树
+     * 2.2. 左右子树均非空，找到删除节点右子树为根下的最小节点，以最小节点作为根，右旋。
+     * 3. 修改 1 中链接指向
+     *
+     * @param key
+     */
+    public void delete(Key key) {
+        root = delete(root, key);
+    }
+
+    /**
+     * 删除指定节点
+     *
+     * @param x
+     * @param key
+     * @return
+     */
+    private Node delete(Node x, Key key) {
+        if (x == null) {
+            // 没有找到key
+            return null;
+        }
+        int compareResult = key.compareTo(x.key);
+        if (compareResult > 0) {
+            // key比当前节点大
+            x.right = delete(x.right, key);
+        } else if (compareResult < 0) {
+            // key比当前节点小
+            x.left = delete(x.left, key);
+        } else {
+            // 找到key
+            if (x.right == null) {
+                // 右子树为空，直接返回左子树
+                return x.left;
+            }
+            if (x.left == null) {
+                // 左子树为空，直接返回右子树
+                return x.right;
+            }
+            // 左右子树都非空，右旋
+            Node t = x;
+            // 右子树中的最小节点
+            x = min(t.right);
+            // 最小节点的右子树为删除最小节点后的子树
+            x.right = deleteMin(t.right);
+            // 左子树为删除节点的左子树
+            x.left = t.left;
+        }
+        // 更新节点计数器
+        x.nodeNums = size(x.left) + size(x.right) + 1;
+        return x;
+    }
 }

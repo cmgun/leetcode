@@ -39,4 +39,23 @@ public class BinarySortTreeTest {
         Assert.assertEquals(6, (int) st.floor(8));
     }
 
+    @Test
+    public void testDelete() {
+        BinarySortTree<Integer, Integer> st = new BinarySortTree<>();
+        st.put(1, 11);
+        st.put(6, 66);
+        st.put(4, 44);
+        st.put(3, 33);
+        st.put(5, 55);
+        st.put(2, 22);
+        st.put(9, 99);
+        // 删除最小节点
+        st.deleteMin();
+        Assert.assertEquals(2, (int) st.min());
+        // 删除指定节点
+        st.delete(4);
+        Integer v1 = st.get(4);
+        Assert.assertNull(v1);
+    }
+
 }
