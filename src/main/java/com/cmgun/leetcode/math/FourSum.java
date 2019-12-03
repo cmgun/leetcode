@@ -12,13 +12,18 @@ import java.util.List;
  */
 public class FourSum {
 
-
+    /**
+     * Runtime: 25 ms, faster than 50.43% of Java online submissions for 4Sum.
+     * Memory Usage: 37.4 MB, less than 100.00% of Java online submissions for 4Sum.
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         // [-2, -1, 1, 2],[-2, 0, 0, 2],[-1, 0, 0, 1]
-//        List<List<Integer>> results = fourSum(new int[]{1, 0, -1, 0, -2, 2}, 0);
-//        for (List<Integer> result : results) {
-//            System.out.println(result);
-//        }
+        List<List<Integer>> results = fourSum(new int[]{1, 0, -1, 0, -2, 2}, 0);
+        for (List<Integer> result : results) {
+            System.out.println(result);
+        }
 
         // [0,0,0,0]
         List<List<Integer>> results1 = fourSum(new int[]{0,0,0,0}, 0);

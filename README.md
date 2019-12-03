@@ -20,3 +20,4 @@
 |15|[3Sum](https://leetcode.com/problems/3sum/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/math/ThreeSum.java)|Medium|
 |16|[3Sum Closest](https://leetcode.com/problems/3sum-closest/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/math/ThreeSumClosest.java)|Medium|
 |17|[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/strings/LetterCombinations.java)|Medium|
+|18|[4Sum](https://leetcode.com/problems/4sum/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/math/FourSum.java)|Medium|
