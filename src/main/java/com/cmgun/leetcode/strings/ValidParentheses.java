@@ -31,6 +31,12 @@ public class ValidParentheses {
         charMaps.put('[', ']');
     }
 
+    /**
+     * Runtime: 1 ms, faster than 98.83% of Java online submissions for Valid Parentheses.
+     * Memory Usage: 34.4 MB, less than 100.00% of Java online submissions for Valid Parentheses.
+     * 
+     * @param args
+     */
     public static void main(String[] args) {
         // true
         System.out.println(isValid("()"));
@@ -42,8 +48,15 @@ public class ValidParentheses {
         System.out.println(isValid("([)]"));
         // true
         System.out.println(isValid("{[]}"));
+        // false
+        System.out.println(isValid("(("));
     }
 
+    /**
+     * valid with stack
+     * @param s
+     * @return
+     */
     public static boolean isValid(String s) {
         // empty string
         if (s == null || s.length() == 0) {
@@ -53,26 +66,28 @@ public class ValidParentheses {
         if (s.length() % 2 != 0) {
             return false;
         }
+        // store the open delimiter
+        Stack<Character> stack = new Stack<>();
         // last char
         char[] chars = s.toCharArray();
-        Character lastChar = chars[0];
-        for (int i = 1; i < chars.length; i++) {
-            char current = chars[i];
+        for (char current : chars) {
             // contains key
             if (charMaps.containsKey(current)) {
-                lastChar = current;
+                // open delimiter
+                stack.push(current);
                 continue;
             }
-            // match last char or not
-            Character endChar = charMaps.get(lastChar);
-            if (endChar == null || !endChar.equals(chars[i])) {
+            // match last char
+            if (stack.isEmpty()) {
+                return false;
+            }
+            Character endChar = charMaps.get(stack.pop());
+            if (endChar == null || !endChar.equals(current)) {
                 // illegal input
                 return false;
             }
-
-            lastChar = null;
         }
-        return lastChar == null;
+        return stack.isEmpty();
     }
 
 
