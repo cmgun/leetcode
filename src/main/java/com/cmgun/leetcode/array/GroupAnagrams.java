@@ -1,6 +1,5 @@
 package com.cmgun.leetcode.array;
 
-
 import java.util.*;
 
 /**
@@ -28,11 +27,13 @@ import java.util.*;
 public class GroupAnagrams {
 
     /**
-     *
+     * Runtime: 5 ms, faster than 99.96% of Java online submissions for Group Anagrams.
+     * Memory Usage: 45.5 MB, less than 34.50% of Java online submissions for Group Anagrams.
      * @param args
      */
     public static void main(String[] args) {
-
+        List<List<String>> result1 = groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"});
+        print(result1);
     }
 
     /**
@@ -41,7 +42,7 @@ public class GroupAnagrams {
      * @param strs
      * @return
      */
-    public List<List<String>> groupAnagrams(String[] strs) {
+    public static List<List<String>> groupAnagrams(String[] strs) {
         // 处理边界
         if (strs == null) {
             return null;
@@ -51,84 +52,55 @@ public class GroupAnagrams {
             result.add(Arrays.asList(strs));
             return result;
         }
-        // 建立索引，key=字母，value=出现次数
-        List<HashMap<Character, Integer>> indexList = new ArrayList<>();
+
+        // 索引对应的结果集位置
+        int index = 0;
         // 结果集
         List<List<String>> result = new ArrayList<>();
+        // 索引map
+        HashMap<String, Integer> map =  new HashMap<>();
 
-        // 初始索引建立
-        char[] chars = strs[0].toCharArray();
-        HashMap<Character, Integer> initIndex = generateIndex(chars);
-        indexList.add(initIndex);
-        result.add(Arrays.asList(strs[0]));
-
-
-        for (int i = 1; i < strs.length; i++) {
-            char[] charArray = strs[i].toCharArray();
-            // 生成索引
-            HashMap<Character, Integer> index = generateIndex(charArray);
-            boolean sameIndex = false;
-            // 遍历索引
-            for (int j = 0; j < indexList.size(); j++) {
-                // 是否已有索引
-                if (sameIndex(index, indexList.get(j))) {
-                    // 添加到结果集
-                    result.get(j).add(strs[i]);
-                    sameIndex = true;
-                    break;
-                }
-            }
-            // 新索引，则新增
-            if (!sameIndex) {
-                indexList.add(index);
-                result.add(Arrays.asList(strs[i]));
+        // 循环遍历，给每个字符串的字符数组排序
+        for(String str: strs) {
+            String tmp = sort(str);
+            // 是否在索引map中存在
+            if(!map.containsKey(tmp)) {
+                // 没有该索引
+                List<String> newList = new ArrayList<>();
+                newList.add(str);
+                result.add(newList);
+                map.put(tmp, index);
+                index++;
+            } else {
+                // 已有索引，则新增到结果集对应的位置
+                List<String> tmpList = result.get(map.get(tmp));
+                tmpList.add(str);
+                result.set(map.get(tmp), tmpList);
             }
         }
+
         return result;
-
     }
 
     /**
-     * 生成字母频次索引
-     * @param chars
+     * 获取字符串的字符集数组后排序，保证顺序与index一致
+     * @param str
      * @return
      */
-    private static HashMap<Character, Integer> generateIndex(char[] chars) {
-        HashMap<Character, Integer> index = new HashMap<>();
-        for (Character c : chars) {
-            if (!index.containsKey(c)) {
-                // 没有该字母，新增
-                index.put(c, 0);
-            }
-            // 对应value+1
-            index.put(c, index.get(c) + 1);
-        }
-        return index;
-    }
-
-    /**
-     * 是否相同索引
-     * @param index1
-     * @param index2
-     * @return
-     */
-    private static boolean sameIndex(HashMap<Character, Integer> index1, HashMap<Character, Integer> index2) {
-        if (index1.size() != index2.size()) {
-            // 长度不同，不相同
-            return false;
-        }
-        // 比较每个字母频次
-        for (Map.Entry<Character, Integer> entry : index1.entrySet()) {
-            if (!index2.containsKey(entry.getKey()) || !index2.get(entry.getKey()).equals(entry.getValue())) {
-                // key不同，或 key相同，value不同
-                return false;
-            }
-        }
-        return true;
+    private static String sort(String str) {
+        char[] tmp = str.toCharArray();
+        Arrays.sort(tmp);
+        return new String(tmp);
     }
 
 
     public static void print(List<List<String>> result) {
-
+        for (int i = 0; i < result.size(); i++) {
+            System.out.println("----row " + i + "----");
+            for (String str: result.get(i)) {
+                System.out.printf(str + ",");
+            }
+            System.out.println("");
+        }
     }
 }
