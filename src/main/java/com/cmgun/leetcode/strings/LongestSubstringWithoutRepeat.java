@@ -2,8 +2,6 @@ package com.cmgun.leetcode.strings;
 
 
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * 3. Longest Substring Without Repeating Characters
@@ -34,11 +32,16 @@ public class LongestSubstringWithoutRepeat {
 
     /**
      * Result:
-     * Runtime: 0 ms, faster than 100.00% of Java online submissions for Longest Common Prefix.
-     * Memory Usage: 36.8 MB, less than 99.57% of Java online submissions for Longest Common Prefix.
+     * Runtime: 7 ms
+     * Memory Usage: 41.9 MB
      */
     public static void main(String[] args) {
-
+        // 3
+        System.out.println(lengthOfLongestSubstring("abcabcbb"));
+        // 1
+        System.out.println(lengthOfLongestSubstring("bbbbb"));
+        // 3
+        System.out.println(lengthOfLongestSubstring("pwwkew"));
     }
 
     /**
@@ -71,6 +74,7 @@ public class LongestSubstringWithoutRepeat {
             }
             // 当前最大长度 = max{当前最长长度, stringIndex(遍历游标) - mapIndex(最大重复元素下标) + 1}
             max = Math.max(stringIndex - mapIndex + 1, max);
+            // 记录当前最小下标位置（下标+1，从1开始）
             charMaps.put(s.charAt(stringIndex), stringIndex + 1);
         }
         return max;

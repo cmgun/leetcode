@@ -5,7 +5,7 @@
 |---| ----- | -------- | ---------- |
 |1|[Two Sum](https://leetcode.com/problems/two-sum/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/math/TwoSum.java)|Easy|
 |2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/math/AddTwoNumbers.java)|Medium|
-|3|[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)| [Java]()|Medium|
+|3|[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/strings/LongestSubstringWithoutRepeat.class)|Medium|
 |4|[Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/array/FindMedianSortedArrays.java)|Hard|
 |5|[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/dp/Solution5.java)|Medium|
 |6|[ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/)| [Java]()|Medium|
