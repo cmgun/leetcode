@@ -5,7 +5,7 @@ package com.cmgun.leetcode.tree;
  * https://leetcode.com/problems/validate-binary-search-tree/
  *
  */
-public class ValidBST {
+public class ValidBST extends BaseTree {
 
 
     /**
@@ -28,37 +28,6 @@ public class ValidBST {
         System.out.println(isValidBST(tree4));
     }
 
-    private static TreeNode initTree(Integer[] nums) {
-        if (nums.length == 0) {
-            return null;
-        }
-        // 所有树节点初始化
-        TreeNode[] treeNodes = new TreeNode[nums.length];
-        TreeNode root = new TreeNode(nums[0]);
-        treeNodes[0] = root;
-        // 建立节点之间父子关系
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] == null) {
-                // 空节点跳过
-                continue;
-            }
-            treeNodes[i] = new TreeNode(nums[i]);
-
-            if (i % 2 == 0) {
-                // 右节点
-                // 寻找父节点
-                int parentIndex = (i - 1) / 2;
-                TreeNode parent = treeNodes[parentIndex];
-                parent.right = treeNodes[i];
-            } else {
-                // 寻找父节点
-                int parentIndex = i / 2;
-                TreeNode parent = treeNodes[parentIndex];
-                parent.left = treeNodes[i];
-            }
-        }
-        return root;
-    }
 
     /**
      * 校验是否二叉搜索树
@@ -109,15 +78,5 @@ public class ValidBST {
         return true;
     }
 
-    /**
-     * 树节点定义
-     */
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) {
-            val = x;
-        }
-    }
+
 }
