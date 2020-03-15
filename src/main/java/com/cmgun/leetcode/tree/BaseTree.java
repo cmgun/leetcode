@@ -12,8 +12,8 @@ public class BaseTree {
      */
     protected static class TreeNode {
         int val;
-        ValidBST.TreeNode left;
-        ValidBST.TreeNode right;
+        TreeNode left;
+        TreeNode right;
         TreeNode(int x) {
             val = x;
         }
