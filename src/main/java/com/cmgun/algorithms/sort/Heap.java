@@ -8,6 +8,10 @@ package com.cmgun.algorithms.sort;
  * 插入元素：从最后一个位置开始上浮到合适的位置
  * 删除元素：从堆顶删除，取最后一个元素替换到堆顶，下沉到合适位置
  *
+ * 时间复杂度：O(N^2)
+ * 空间复杂度：O(1)
+ * 稳定性：稳定
+ *
  * Created by cmgun on 2019/9/22
  */
 public class Heap extends AbstractSortTemplate {

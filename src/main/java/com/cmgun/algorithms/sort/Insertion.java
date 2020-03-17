@@ -9,6 +9,9 @@ package com.cmgun.algorithms.sort;
  * 重复直到所有元素都排序完毕
  *
  * 与选择排序对比，在数组大部分有序的情况下，性能会较选择排序更优
+ * 时间复杂度：O(N^2)
+ * 空间复杂度：O(1)
+ * 稳定性：稳定
  *
  * Created by cmgun on 2019/9/9
  */
