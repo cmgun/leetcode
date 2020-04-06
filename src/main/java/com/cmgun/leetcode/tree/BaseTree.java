@@ -1,5 +1,7 @@
 package com.cmgun.leetcode.tree;
 
+import java.util.LinkedList;
+
 /**
  * 树相关的定义基类
  *
@@ -63,5 +65,31 @@ public class BaseTree {
             }
         }
         return root;
+    }
+
+    /**
+     * 打印树的形状 BFS方式
+     * @param root
+     */
+    protected static void printTree(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        TreeNode current = null;
+        while (!queue.isEmpty()) {
+            // 头节点出队
+            current = queue.poll();
+            // 打印
+            System.out.print(current.val + ",");
+            // 左右节点入队
+            if (current.left != null) {
+                queue.offer(current.left);
+            }
+            if (current.right != null) {
+                queue.offer(current.right);
+            }
+        }
     }
 }
