@@ -44,4 +44,5 @@
 |328|[Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/linkedlist/OddEvenLinkedList.java)|Medium|
 |334|[Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/array/IncreasingTripletSubsequence.java)|Medium|
 |350|[Intersection of Two Arrays II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/array/IntersectionofTwoArraysII.java)|Easy|
+|387|[First Unique Character in a String](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/strings/FirstUniqueCharacterinaString.java)|Easy|
 |566|[Reshape the Matrix](https://leetcode-cn.com/problems/reshape-the-matrix/)| [Java](https://github.com/cmgun/leetcode/blob/master/src/main/java/com/cmgun/leetcode/array/ReshapetheMatrix.java)|Easy|
